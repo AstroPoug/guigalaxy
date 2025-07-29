@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guis on Gui Galaxy</title>
+    <link>http://localhost:1313/guis/</link>
+    <description>Recent content in Guis on Gui Galaxy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Aug 1995 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/guis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 95</title>
+      <link>http://localhost:1313/guis/windows/win95.md/</link>
+      <pubDate>Thu, 24 Aug 1995 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/guis/windows/win95.md/</guid>
+      <description>&lt;div class=&#34;window&#34;&gt;&#xA;  &lt;div class=&#34;window-header&#34;&gt;&#xA;    &lt;span class=&#34;window-title&#34;&gt;&amp;#x1F4BB; Empty Desktop&lt;/span&gt;&#xA;    &lt;div class=&#34;window-controls&#34;&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;_&lt;/span&gt;      &lt;!-- Minimize (underscore) --&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;&amp;#x25A1;&lt;/span&gt; &lt;!-- Maximize (?) --&gt;&#xA;  &lt;span class=&#34;window-button close&#34;&gt;&amp;#x2715;&lt;/span&gt; &lt;!-- Close (?) --&gt;&#xA;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;window-content&#34; style=&#34;padding: 12px;&#34;&gt;&#xA;    &lt;p&gt;&#xA;      &#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;img src=&#34;http://localhost:1313/images/Windows/Win95/Windows 95 Empty Desktop (2).png&#34; alt=&#34;Windows 95 Desktop&#34; style=&#34;width:100%; border: 1px solid #ccc; margin-top: 12px;&#34;&gt;&#xA;&#xA;    &lt;p style=&#34;font-size: 12px; margin-top: 8px;&#34;&gt;&#xA;      That teal wallpaper was the definition of &#39;mid-90s digital zen.&#39;&#xA;    &lt;/p&gt;&#xA;  &lt;/div&gt;&#xA; &lt;div class=&#34;window&#34;&gt;&#xA;  &lt;div class=&#34;window-header&#34;&gt;&#xA;    &lt;span class=&#34;window-title&#34;&gt;&amp;#128464; Desktop with applications&lt;/span&gt;&#xA;    &lt;div class=&#34;window-controls&#34;&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;_&lt;/span&gt;      &lt;!-- Minimize (underscore) --&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;&amp;#x25A1;&lt;/span&gt; &lt;!-- Maximize (?) --&gt;&#xA;  &lt;span class=&#34;window-button close&#34;&gt;&amp;#x2715;&lt;/span&gt; &lt;!-- Close (?) --&gt;&#xA;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;window-content&#34; style=&#34;padding: 12px;&#34;&gt;&#xA;    &lt;p&gt;&#xA;      &#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;img src=&#34;http://localhost:1313/images/Windows/Win95/Windows 95 With Programs Open (2).png&#34; alt=&#34;Windows 95 Desktop&#34; style=&#34;width:100%; border: 1px solid #ccc; margin-top: 12px;&#34;&gt;&#xA;&#xA;    &lt;p style=&#34;font-size: 12px; margin-top: 8px;&#34;&gt;&#xA;      &#xA;    &lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

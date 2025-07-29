@@ -1,0 +1,88 @@
+<footer class="site-footer">
+    <div class="window">
+        <div class="window-header">
+            <span class="window-title">💻 Site Information</span>
+            <div class="window-controls">
+                <span class="window-button">_</span>
+                <span class="window-button">□</span>
+                <span class="window-button">×</span>
+            </div>
+        </div>
+        <div class="window-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 10px;">
+                
+                <!-- Site Info -->
+                <div>
+                    <div style="font-weight: bold; margin-bottom: 4px;">📋 Site Info</div>
+                    <div>© {{ now.Format "2006" }} {{ .Site.Title }}</div>
+                    {{ with .Site.Params.author }}
+                    <div>Created by {{ . }}</div>
+                    {{ end }}
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <div style="font-weight: bold; margin-bottom: 4px;">🔗 Quick Links</div>
+                    <div><a href="{{ .Site.BaseURL }}">🏠 Home</a></div>
+                    {{ $posts := where .Site.RegularPages "Type" "posts" }}
+                    {{ if $posts }}
+                    <div><a href="{{ "/posts/" | relLangURL }}">📝 All Posts</a></div>
+                    {{ end }}
+                    <div><a href="{{ "/categories/" | relLangURL }}">📂 Categories</a></div>
+                    <div><a href="{{ "/tags/" | relLangURL }}">🏷️ Tags</a></div>
+                    {{ with .Site.LanguageCode }}
+                    {{ end }}
+                </div>
+                
+                
+                
+                <!-- Stats -->
+                <div>
+                    <div style="font-weight: bold; margin-bottom: 4px;">📊 Statistics</div>
+                    <div>Posts: {{ len (where .Site.RegularPages "Type" "posts") }}</div>
+                    <div>Categories: {{ len .Site.Taxonomies.categories }}</div>
+                    <div>Tags: {{ len .Site.Taxonomies.tags }}</div>
+                    <div>Last Update: {{ .Site.Lastmod.Format "Jan 2, 2006" }}</div>
+                </div>
+            </div>
+            
+            <!-- Retro Footer Elements -->
+            {{ if .Site.Params.show_retro_footer }}
+            <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--border-dark); text-align: center;">
+                <div style="font-size: 9px; margin-bottom: 4px;">
+                    
+                </div>
+                <div style="font-size: 8px; color: var(--text-secondary);">
+                    Best viewed in {{ if eq (now.Weekday) 0 }}Netscape Navigator 4.0+{{ else if eq (now.Weekday) 1 }}Internet Explorer 5.0+{{ else if eq (now.Weekday) 2 }}Mozilla Firefox{{ else if eq (now.Weekday) 3 }}Opera 7.0+{{ else if eq (now.Weekday) 4 }}Safari{{ else if eq (now.Weekday) 5 }}Chrome{{ else }}Any modern browser{{ end }}
+                    
+                </div>
+                <div style="font-size: 8px; margin-top: 4px;">
+                    Visitor counter: 
+<div align=center><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-byZ144CddDwdcW4W-29.gif' border='0' alt='free counter'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=byZ144CddDwdcW4W'></script></div>
+                    </span>
+                </div>
+            </div>
+            {{ end }}
+            
+            <!-- Legal -->
+            {{ if or .Site.Params.privacy_policy .Site.Params.terms_of_service }}
+            <div style="margin-top: 8px; padding-top: 4px; border-top: 1px solid var(--border-dark); text-align: center; font-size: 9px;">
+                {{ with .Site.Params.privacy_policy }}
+                <a href="{{ . }}">Privacy Policy</a>
+                {{ end }}
+                {{ if and .Site.Params.privacy_policy .Site.Params.terms_of_service }} • {{ end }}
+                {{ with .Site.Params.terms_of_service }}
+                <a href="{{ . }}">Terms of Service</a>
+                {{ end }}
+            </div>
+            {{ end }}
+            
+            <!-- Build Info -->
+            {{ if .Site.Params.show_build_info }}
+            <div style="margin-top: 8px; text-align: center; font-size: 8px; color: var(--text-secondary);">
+                Built with Hugo {{ hugo.Version }} on {{ now.Format "Jan 2, 2006 15:04:05 MST" }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</footer>
