@@ -1,10 +1,11 @@
 [build]
   publish = "public"
-  command = "hugo --gc --minify --baseURL $DEPLOY_PRIME_URL"
+  command = "bash -lc 'printf \"last_update: %sZ\n\" $(date -u +%FT%T) > data/site.yml && hugo --gc --minify --baseURL $DEPLOY_PRIME_URL'"
 
 [build.environment]
   HUGO_VERSION = "0.124.0"   # set to your local version: hugo version
   HUGO_EXTENDED = "true"
+  GIT_DEPTH= "0"
   GIT_SUBMODULE_STRATEGY = "recursive"  # if your theme is a submodule
   GIT_LFS_ENABLED = "1"                 # if you track big images with LFS
 

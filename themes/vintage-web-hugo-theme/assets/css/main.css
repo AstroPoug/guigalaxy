@@ -128,6 +128,9 @@ a:visited {
 .window-title {
     flex: 1;
     padding-left: 4px;
+	text-align: left;
+	a display: inline; text-decoration: none; color: inherit;
+	a:hover text-decoration: underline;
 }
 
 .window-controls {

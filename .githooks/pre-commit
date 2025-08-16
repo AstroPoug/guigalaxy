@@ -1,0 +1,4 @@
+#!/bin/sh
+# Update data/site.yml with current UTC time before committing
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ts=(Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ'); New-Item -ItemType Directory data -Force | Out-Null; Set-Content -Path data/site.yml -Value ('last_update: ' + $ts) -Encoding utf8; git add data/site.yml"
+exit 0

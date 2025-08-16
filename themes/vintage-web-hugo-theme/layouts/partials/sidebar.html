@@ -99,11 +99,8 @@
 <div class="sidebar-section">
     <div class="sidebar-title">📊 Site Stats</div>
     <div style="font-size: 10px;">
-        <div>Total Posts: {{ len (where .Site.RegularPages "Type" "posts") }}</div>
-        <div>Total Pages: {{ len .Site.RegularPages }}</div>
-        <div>Categories: {{ len .Site.Taxonomies.categories }}</div>
-        <div>Tags: {{ len .Site.Taxonomies.tags }}</div>
-        <div>Last Updated: {{ .Site.Lastmod.Format "Jan 2, 2006" }}</div>
+        <div class="last-updated">Last updated: {{ (time site.Data.site.last_update).Format "Monday, January 2, 2006 at 3:04 PM" }}
+</div>
     </div>
 </div>
 {{ end }}

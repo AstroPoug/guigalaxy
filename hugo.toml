@@ -2,6 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'Gui Galaxy'
 theme = "vintage-web-hugo-theme"
+enableGitInfo = true
 
 [markup]
   [markup.highlight]
