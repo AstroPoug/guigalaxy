@@ -1,7 +1,6 @@
 [build]
-  base = "NewSite"
   publish = "public"
-  command = "hugo --gc --minify"
+  command = "hugo --gc --minify -s NewSite"
 
 [build.environment]
   HUGO_VERSION = "0.148.0"   # set to your local version: hugo version
