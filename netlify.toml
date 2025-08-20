@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "hugo netlify"
+  command = "hugo"
 
 [build.environment]
   HUGO_VERSION = "0.124.0"   # set to your local version: hugo version
