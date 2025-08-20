@@ -3,7 +3,7 @@
   command = "hugo --gc --minify -s NewSite"
 
 [build.environment]
-  HUGO_VERSION = "0.148.0"   # set to your local version: hugo version
+  HUGO_VERSION = "0.124.0"   # set to your local version: hugo version
   HUGO_EXTENDED = "true"
   GIT_DEPTH= "0"
   GIT_SUBMODULE_STRATEGY = "recursive"  # if your theme is a submodule
