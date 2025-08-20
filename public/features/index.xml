@@ -13,14 +13,14 @@
       <link>http://localhost:1313/features/shutdowncomplete/shutdowncomplete.md/</link>
       <pubDate>Sat, 02 Aug 2025 23:13:30 -0400</pubDate>
       <guid>http://localhost:1313/features/shutdowncomplete/shutdowncomplete.md/</guid>
-      <description></description>
+      <description>&lt;div class=&#34;window&#34;&gt;&#xA;  &lt;div class=&#34;window-header&#34;&gt;&#xA;    &lt;span class=&#34;window-title&#34;&gt; Windows Vista&lt;/span&gt;&#xA;    &lt;div class=&#34;window-controls&#34;&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;_&lt;/span&gt;      &lt;!-- Minimize (underscore) --&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;&amp;#x25A1;&lt;/span&gt; &lt;!-- Maximize (?) --&gt;&#xA;  &lt;span class=&#34;window-button close&#34;&gt;&amp;#x2715;&lt;/span&gt; &lt;!-- Close (?) --&gt;&#xA;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;window-content&#34; style=&#34;padding: 12px;&#34;&gt;&#xA;    &lt;p&gt;&#xA;      &#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-size: 12px; margin-top: 8px;&#34;&gt;&#xA;      &lt;img src=&#34;http://localhost:1313/images/Windows/WinVista/Windows Vista Shutdown Complete.png&#34; alt=&#34;Windows 95 Desktop&#34; style=&#34;width:100%; border: 1px solid #ccc; margin-top: 12px;&#34;&gt;&#xA;    &lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Web Browser</title>
       <link>http://localhost:1313/features/browser/browser.md/</link>
       <pubDate>Sat, 02 Aug 2025 22:55:47 -0400</pubDate>
       <guid>http://localhost:1313/features/browser/browser.md/</guid>
-      <description></description>
+      <description>&lt;div class=&#34;window&#34;&gt;&#xA;  &lt;div class=&#34;window-header&#34;&gt;&#xA;    &lt;span class=&#34;window-title&#34;&gt;&lt;a href=&#34;http://localhost:1313/guis/windows/winvista.md&#34;&gt;Windows Vista&lt;/a&gt;&lt;/span&gt;&#xA;    &lt;div class=&#34;window-controls&#34;&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;_&lt;/span&gt;      &lt;!-- Minimize (underscore) --&gt;&#xA;  &lt;span class=&#34;window-button&#34;&gt;&amp;#x25A1;&lt;/span&gt; &lt;!-- Maximize (?) --&gt;&#xA;  &lt;span class=&#34;window-button close&#34;&gt;&amp;#x2715;&lt;/span&gt; &lt;!-- Close (?) --&gt;&#xA;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;window-content&#34; style=&#34;padding: 12px;&#34;&gt;&#xA;    &lt;p&gt;&#xA;      &#xA;    &lt;/p&gt;&#xA;&#xA;    &lt;p style=&#34;font-size: 12px; margin-top: 8px;&#34;&gt;&#xA;     &lt;img src=&#34;http://localhost:1313/images/Windows/WinVista/Windows Vista Web Browser.png&#34; alt=&#34;Windows 95 Desktop&#34; style=&#34;width:100%; border: 1px solid #ccc; margin-top: 12px;&#34;&gt; &#xA;    &lt;/p&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Login Screen</title>

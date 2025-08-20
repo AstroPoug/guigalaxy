@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "bash -lc 'printf \"last_update: %sZ\n\" $(date -u +%FT%T) > data/site.yml && hugo --gc --minify --baseURL $DEPLOY_PRIME_URL'"
+  command = "hugo build netlify"
 
 [build.environment]
   HUGO_VERSION = "0.124.0"   # set to your local version: hugo version

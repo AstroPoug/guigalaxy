@@ -119,7 +119,7 @@ function initRetroEffects() {
     }
     
     // Add retro cursor trail effect (optional)
-    if (localStorage.getItem('retroCursor') === 'true') {
+    if (localStorage.getItem('retroCursor') === 'false') {
         initCursorTrail();
     }
     
