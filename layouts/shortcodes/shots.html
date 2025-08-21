@@ -1,0 +1,71 @@
+<div class="ss-deck" id="ss-{{ .Get "id" | default (now.UnixNano) }}">
+  <div class="ss-stage">
+    {{/* Put your <img> tags inside the shortcode; only first shows initially */}}
+    {{ .Inner | safeHTML }}
+  </div>
+
+  <div class="ss-controls">
+    <button type="button" class="ss-prev">◀ Prev</button>
+    <span class="ss-count"><span class="cur">1</span>/<span class="tot">1</span></span>
+    <button type="button" class="ss-next">Next ▶</button>
+  </div>
+
+  <div class="ss-dots" aria-label="Slide selector"></div>
+</div>
+
+<style>
+  .ss-deck{margin:8px 0; outline:0}
+  .ss-stage img{display:none; width:100%; height:auto; image-rendering:pixelated; border:1px solid #bbb}
+  .ss-stage img.active{display:block}
+  .ss-controls{display:flex; gap:8px; align-items:center; justify-content:center; margin:6px 0}
+  .ss-controls button{padding:2px 8px; border:1px solid #888; background:#ddd; cursor:pointer}
+  .ss-dots{display:flex; gap:4px; justify-content:center; margin-top:4px}
+  .ss-dots .ss-dot{width:9px; height:9px; border:1px solid #666; background:#e5e5e5; padding:0}
+  .ss-dots .ss-dot.active{background:#666}
+</style>
+
+<script>
+(function(){
+  if (window.__shotsInit) return;  // init once even if shortcode repeated
+  window.__shotsInit = true;
+
+  function initDeck(deck){
+    const imgs = deck.querySelectorAll('.ss-stage img');
+    if (!imgs.length) return;
+    imgs.forEach((img,i)=>{ img.classList.toggle('active', i===0); img.dataset.idx = i; });
+
+    let idx = 0, total = imgs.length;
+    const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
+    tot.textContent = total; cur.textContent = 1;
+
+    function show(n){
+      idx = (n + total) % total;
+      imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
+      cur.textContent = idx+1;
+      deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
+    }
+
+    deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
+    deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
+
+    const dots = deck.querySelector('.ss-dots');
+    dots.innerHTML = '';
+    imgs.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'ss-dot'; b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.addEventListener('click', ()=>show(i));
+      dots.appendChild(b);
+    });
+    dots.firstChild?.classList.add('active');
+
+    // keyboard support (focus deck to use)
+    deck.tabIndex = 0;
+    deck.addEventListener('keydown', e=>{
+      if (e.key === 'ArrowLeft') show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  }
+
+  document.querySelectorAll('.ss-deck').forEach(initDeck);
+})();
+</script>
