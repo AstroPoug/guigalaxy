@@ -6,8 +6,15 @@
     <description>Recent content in Features on Gui Galaxy</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Aug 2025 21:11:26 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 20 Aug 2025 20:42:26 -0400</lastBuildDate>
     <atom:link href="http://localhost:1313/features/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Command Prompt</title>
+      <link>http://localhost:1313/features/commandprompt/command.md/</link>
+      <pubDate>Wed, 20 Aug 2025 22:55:47 -0400</pubDate>
+      <guid>http://localhost:1313/features/commandprompt/command.md/</guid>
+      <description>&lt;div class=&#34;window&#34;&gt;&#xD;&#xA;  &lt;div class=&#34;window-header&#34;&gt;&#xD;&#xA;    &lt;span class=&#34;window-title&#34;&gt;&lt;a href=&#34;http://localhost:1313/guis/windows/win95.md&#34;&gt;Windows 95&lt;/a&gt;&lt;/span&gt;&#xD;&#xA;    &lt;div class=&#34;window-controls&#34;&gt;&#xD;&#xA;  &lt;span class=&#34;window-button&#34;&gt;_&lt;/span&gt;      &lt;!-- Minimize (underscore) --&gt;&#xD;&#xA;  &lt;span class=&#34;window-button&#34;&gt;&amp;#x25A1;&lt;/span&gt; &lt;!-- Maximize (?) --&gt;&#xD;&#xA;  &lt;span class=&#34;window-button close&#34;&gt;&amp;#x2715;&lt;/span&gt; &lt;!-- Close (?) --&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;  &lt;/div&gt;&#xD;&#xA;  &lt;div class=&#34;window-content&#34; style=&#34;padding: 12px;&#34;&gt;&#xD;&#xA;    &lt;p&gt;&#xD;&#xA;      &#xD;&#xA;    &lt;/p&gt;&#xD;&#xA;&#x9;&lt;img src=&#34;http://localhost:1313/images/Windows/Win95/Windows 95 Command Prompt.png&#34; alt=&#34;Windows 95 Desktop&#34; style=&#34;width:100%; border: 1px solid #ccc; margin-top: 12px;&#34;&gt;&#xD;&#xA;&#x9;MS-DOS Prompt. Windows 95 runs on MS-DOS 7.0.&#xD;&#xA;    &lt;/p&gt;&#xD;&#xA;  &lt;/div&gt;&#xD;&#xA;&lt;/div&gt;</description>
+    </item>
     <item>
       <title>Shutdown Complete</title>
       <link>http://localhost:1313/features/shutdowncomplete/shutdowncomplete.md/</link>

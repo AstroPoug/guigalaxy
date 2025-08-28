@@ -2,32 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/guis/</loc>
-    <lastmod>2025-08-20T00:31:50-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/guis/windows/longhorn4015.md/</loc>
-    <lastmod>2025-08-20T00:31:50-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/guis/windows/winvista.md/</loc>
-    <lastmod>2025-08-18T15:04:40-04:00</lastmod>
+    <loc>http://localhost:1313/features/commandprompt/command.md/</loc>
+    <lastmod>2025-08-20T20:42:26-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/features/</loc>
-    <lastmod>2025-08-13T21:11:26-04:00</lastmod>
+    <lastmod>2025-08-20T20:42:26-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/guis/</loc>
+    <lastmod>2025-08-21T13:37:20-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/guis/windows/longhorn4015.md/</loc>
+    <lastmod>2025-08-20T18:17:27-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/guis/windows/winvista.md/</loc>
+    <lastmod>2025-08-21T13:37:20-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/features/shutdowncomplete/shutdowncomplete.md/</loc>
-    <lastmod>2025-08-13T21:11:26-04:00</lastmod>
+    <lastmod>2025-08-20T18:17:27-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/features/browser/browser.md/</loc>
-    <lastmod>2025-08-13T21:11:26-04:00</lastmod>
+    <lastmod>2025-08-20T18:17:27-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/features/login/login.md/</loc>
     <lastmod>2025-08-13T21:11:26-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/features/bootscreen/boot.md/</loc>
-    <lastmod>2025-08-13T21:11:26-04:00</lastmod>
+    <lastmod>2025-08-20T18:17:27-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/guis/windows/win95.md/</loc>
-    <lastmod>2025-08-16T02:29:38-04:00</lastmod>
+    <lastmod>2025-08-21T13:37:20-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>

@@ -1,5 +1,57 @@
-{{ $id := printf "ss-%d" (now.UnixNano) }}
-<div class="ss-deck" id="{{ $id }}">
+{{/* Inject styles + init function once per page */}}
+{{- if not (.Page.Scratch.Get "shots_injected") -}}
+<style>
+  .ss-deck{margin:8px 0}
+  .ss-stage img{display:none;width:100%;height:auto;image-rendering:pixelated;border:1px solid #bbb}
+  .ss-stage img.active{display:block}
+  .ss-controls{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0}
+  .ss-controls button{padding:2px 8px;border:1px solid #888;background:#ddd;cursor:pointer}
+  .ss-dots{display:flex;gap:4px;justify-content:center;margin-top:4px}
+  .ss-dots .ss-dot{width:9px;height:9px;border:1px solid #666;background:#e5e5e5;padding:0}
+  .ss-dots .ss-dot.active{background:#666}
+</style>
+<script>
+  window.__initShots = window.__initShots || function(deck){
+    const imgs = deck.querySelectorAll('.ss-stage img');
+    if (!imgs.length) return;
+    imgs.forEach((im,i)=>{ im.classList.toggle('active', i===0); im.dataset.idx = i; });
+    let idx = 0, total = imgs.length;
+    const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
+    if (tot) tot.textContent = total; if (cur) cur.textContent = 1;
+
+    function show(n){
+      idx = (n + total) % total;
+      imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
+      if (cur) cur.textContent = idx+1;
+      deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
+    }
+
+    deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
+    deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
+
+    const dots = deck.querySelector('.ss-dots');
+    dots.innerHTML = '';
+    imgs.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'ss-dot';
+      b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.addEventListener('click', ()=>show(i));
+      dots.appendChild(b);
+    });
+    dots.firstChild?.classList.add('active');
+
+    // keyboard
+    deck.tabIndex = 0;
+    deck.addEventListener('keydown', e=>{
+      if (e.key === 'ArrowLeft') show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  };
+</script>
+{{- .Page.Scratch.Set "shots_injected" true -}}
+{{- end -}}
+
+<div class="ss-deck">
   <div class="ss-stage">
     {{ .Inner | safeHTML }}
   </div>
@@ -13,59 +65,11 @@
   <div class="ss-dots" aria-label="Slide selector"></div>
 </div>
 
-<style>
-  .ss-stage img{display:none;width:100%;height:auto;image-rendering:pixelated;border:1px solid #bbb}
-  .ss-stage img.active{display:block}
-  .ss-controls{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0}
-  .ss-controls button{padding:2px 8px;border:1px solid #888;background:#ddd;cursor:pointer}
-  .ss-dots{display:flex;gap:4px;justify-content:center;margin-top:4px}
-  .ss-dots .ss-dot{width:9px;height:9px;border:1px solid #666;background:#e5e5e5;padding:0}
-  .ss-dots .ss-dot.active{background:#666}
-</style>
-
 <script>
 (function(){
-  // define the initializer once
-  if (!window.__initShots) {
-    window.__initShots = function(deck){
-      const imgs = deck.querySelectorAll('.ss-stage img');
-      if (!imgs.length) return;
-      imgs.forEach((im,i)=>{ im.classList.toggle('active', i===0); im.dataset.idx = i; });
-      let idx = 0, total = imgs.length;
-      const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
-      if (tot) tot.textContent = total; if (cur) cur.textContent = 1;
-
-      function show(n){
-        idx = (n + total) % total;
-        imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
-        if (cur) cur.textContent = idx+1;
-        deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
-      }
-
-      deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
-      deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
-
-      const dots = deck.querySelector('.ss-dots');
-      dots.innerHTML = '';
-      imgs.forEach((_,i)=>{
-        const b = document.createElement('button');
-        b.type = 'button'; b.className = 'ss-dot';
-        b.setAttribute('aria-label','Go to slide '+(i+1));
-        b.addEventListener('click', ()=>show(i));
-        dots.appendChild(b);
-      });
-      dots.firstChild?.classList.add('active');
-
-      deck.tabIndex = 0;
-      deck.addEventListener('keydown', e=>{
-        if (e.key === 'ArrowLeft') show(idx-1);
-        if (e.key === 'ArrowRight') show(idx+1);
-      });
-    };
-  }
-
-  // init THIS deck (exists because script is placed after it)
-  var deck = document.getElementById('{{ $id }}');
-  if (deck && !deck.__inited) { window.__initShots(deck); deck.__inited = true; }
+  // Find the nearest previous .ss-deck even if a <style> (or other nodes) sit between
+  var s = document.currentScript, p = s.previousElementSibling;
+  while (p && !p.classList.contains('ss-deck')) { p = p.previousElementSibling; }
+  if (p && !p.__inited) { window.__initShots(p); p.__inited = true; }
 })();
 </script>
