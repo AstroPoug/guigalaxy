@@ -132,7 +132,7 @@
                 </span>
                 
                 <span class="post-meta-item">
-                    🔄 Updated: August 21, 2025
+                    🔄 Updated: August 27, 2025
                 </span>
                 
 
@@ -163,7 +163,7 @@
         <div class="content">
             <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4BB; First Run</span>
+    <span class="window-title">&#9881; First Run</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -217,6 +217,19 @@
 
     <p style="font-size: 12px; margin-top: 8px;">
       
+    </p>
+  </div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#128444; Desktop with different themes</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>  
     </p>
   </div>
  <div class="window">
@@ -322,6 +335,23 @@ The clock is included in the taskbar, so a seperate program is redundant.
 </div>
 <div class="window">
   <div class="window-header">
+    <span class="window-title">&#9200; Alarm</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+This OS doesn't have this feature.
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
     <span class="window-title">&#128199; Address Book</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
@@ -341,6 +371,23 @@ The clock is included in the taskbar, so a seperate program is redundant.
 </div>
 <div class="window">
   <div class="window-header">
+    <span class="window-title">&#128221; Sticky Notes</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+     This OS doesn't have this feature.
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
     <span class="window-title">&#9654; Media Player</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
@@ -352,8 +399,78 @@ The clock is included in the taskbar, so a seperate program is redundant.
     <p>
       
     </p>
-<img src="/images/Windows/Win95/Windows 95 Media Player.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
-<img src="/images/Windows/Win95/Windows 95 Media Player 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+<style>
+  .ss-deck{margin:8px 0}
+  .ss-stage img{display:none;width:100%;height:auto;image-rendering:pixelated;border:1px solid #bbb}
+  .ss-stage img.active{display:block}
+  .ss-controls{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0}
+  .ss-controls button{padding:2px 8px;border:1px solid #888;background:#ddd;cursor:pointer}
+  .ss-dots{display:flex;gap:4px;justify-content:center;margin-top:4px}
+  .ss-dots .ss-dot{width:9px;height:9px;border:1px solid #666;background:#e5e5e5;padding:0}
+  .ss-dots .ss-dot.active{background:#666}
+</style>
+<script>
+  window.__initShots = window.__initShots || function(deck){
+    const imgs = deck.querySelectorAll('.ss-stage img');
+    if (!imgs.length) return;
+    imgs.forEach((im,i)=>{ im.classList.toggle('active', i===0); im.dataset.idx = i; });
+    let idx = 0, total = imgs.length;
+    const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
+    if (tot) tot.textContent = total; if (cur) cur.textContent = 1;
+
+    function show(n){
+      idx = (n + total) % total;
+      imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
+      if (cur) cur.textContent = idx+1;
+      deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
+    }
+
+    deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
+    deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
+
+    const dots = deck.querySelector('.ss-dots');
+    dots.innerHTML = '';
+    imgs.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'ss-dot';
+      b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.addEventListener('click', ()=>show(i));
+      dots.appendChild(b);
+    });
+    dots.firstChild?.classList.add('active');
+
+    
+    deck.tabIndex = 0;
+    deck.addEventListener('keydown', e=>{
+      if (e.key === 'ArrowLeft') show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  };
+</script><div class="ss-deck">
+  <div class="ss-stage">
+    
+<img src="/images/Windows/Win95/Windows 95 Media Player.png" alt="Windows 95 Desktop" style="width:66%; border: 1px solid #ccc; margin-top: 12px;">
+<img src="/images/Windows/Win95/Windows 95 Media Player 2.png" alt="Windows 95 Desktop" style="width:66%; border: 1px solid #ccc; margin-top: 12px;">
+
+  </div>
+
+  <div class="ss-controls">
+    <button type="button" class="ss-prev">◀ Prev</button>
+    <span class="ss-count"><span class="cur">1</span>/<span class="tot">1</span></span>
+    <button type="button" class="ss-next">Next ▶</button>
+  </div>
+
+  <div class="ss-dots" aria-label="Slide selector"></div>
+</div>
+
+<script>
+(function(){
+  
+  var s = document.currentScript, p = s.previousElementSibling;
+  while (p && !p.classList.contains('ss-deck')) { p = p.previousElementSibling; }
+  if (p && !p.__inited) { window.__initShots(p); p.__inited = true; }
+})();
+</script>
     <p style="font-size: 12px; margin-top: 8px;">
       Videos played in a seperate window.
     </p>
@@ -380,6 +497,26 @@ CD playback functionality is included as part of Media Player.
 </div>
 <div class="window">
   <div class="window-header">
+    <span class="window-title">&#128250; 10-foot interface</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+This OS doesn't have this feature.
+    <p style="font-size: 12px; margin-top: 8px;">
+      
+    </p>
+  </div>
+</div>
+
+<div class="window">
+  <div class="window-header">
     <span class="window-title">&#x1F3A8; Image Editor</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
@@ -400,7 +537,7 @@ Microsoft Paint. The drawn picture demonstrates the functionality of this versio
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#128191; Image Viewer</span>
+    <span class="window-title">&#128444; Image Viewer</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -419,7 +556,7 @@ Image files opened in Windows 95 are opened in MS Paint. Windows 95 doesn't have
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#128191; Video Editor</span>
+    <span class="window-title">&#127916; Video Editor</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -476,7 +613,7 @@ This OS does not have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#127908; Camera</span>
+    <span class="window-title">&#128247; Camera</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -504,54 +641,7 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-    <style>
-  .ss-deck{margin:8px 0}
-  .ss-stage img{display:none;width:100%;height:auto;image-rendering:pixelated;border:1px solid #bbb}
-  .ss-stage img.active{display:block}
-  .ss-controls{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0}
-  .ss-controls button{padding:2px 8px;border:1px solid #888;background:#ddd;cursor:pointer}
-  .ss-dots{display:flex;gap:4px;justify-content:center;margin-top:4px}
-  .ss-dots .ss-dot{width:9px;height:9px;border:1px solid #666;background:#e5e5e5;padding:0}
-  .ss-dots .ss-dot.active{background:#666}
-</style>
-<script>
-  window.__initShots = window.__initShots || function(deck){
-    const imgs = deck.querySelectorAll('.ss-stage img');
-    if (!imgs.length) return;
-    imgs.forEach((im,i)=>{ im.classList.toggle('active', i===0); im.dataset.idx = i; });
-    let idx = 0, total = imgs.length;
-    const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
-    if (tot) tot.textContent = total; if (cur) cur.textContent = 1;
-
-    function show(n){
-      idx = (n + total) % total;
-      imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
-      if (cur) cur.textContent = idx+1;
-      deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
-    }
-
-    deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
-    deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
-
-    const dots = deck.querySelector('.ss-dots');
-    dots.innerHTML = '';
-    imgs.forEach((_,i)=>{
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'ss-dot';
-      b.setAttribute('aria-label','Go to slide '+(i+1));
-      b.addEventListener('click', ()=>show(i));
-      dots.appendChild(b);
-    });
-    dots.firstChild?.classList.add('active');
-
-    
-    deck.tabIndex = 0;
-    deck.addEventListener('keydown', e=>{
-      if (e.key === 'ArrowLeft') show(idx-1);
-      if (e.key === 'ArrowRight') show(idx+1);
-    });
-  };
-</script><div class="ss-deck">
+    <div class="ss-deck">
   <div class="ss-stage">
     
 	<img src="/images/Windows/Win95/Windows 95 Terminal.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
@@ -659,6 +749,23 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
+    <span class="window-title">&#9925; Weather</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+    This OS doesn't have this feature.
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
     <span class="window-title">&#9000; Keyboard map</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
@@ -676,7 +783,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#9000; Magnifier</span>
+    <span class="window-title">&#128269; Magnifier</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -693,7 +800,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#9000; Narrator</span>
+    <span class="window-title">&#128483; Narrator</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1068,7 +1175,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Multimedia</span>
+    <span class="window-title">&#127925; Multimedia</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1112,7 +1219,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Sound</span>
+    <span class="window-title">&#128266; Sound</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1129,7 +1236,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Hardware</span>
+    <span class="window-title">&#128187; Hardware</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1170,7 +1277,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Internet</span>
+    <span class="window-title">&#127760; Internet</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1187,7 +1294,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Network</span>
+    <span class="window-title">&#128225; Network</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1229,7 +1336,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Printers</span>
+    <span class="window-title">&#128424; Printers</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1274,7 +1381,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Speech Recognition</span>
+    <span class="window-title">&#127908; Speech Recognition</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1291,7 +1398,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; System</span>
+    <span class="window-title">&#128421; System</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1331,7 +1438,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Application Switcher Properties</span>
+    <span class="window-title">&#128260; Application Switcher Properties</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1347,7 +1454,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Application Manager Properties</span>
+    <span class="window-title">&#128194; Application Manager Properties</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1363,7 +1470,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Add/Remove Programs</span>
+    <span class="window-title">&#10133;&#10134; Add/Remove Programs</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1379,7 +1486,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Default Programs</span>
+    <span class="window-title">&#11088; Default Programs</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1394,7 +1501,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Users</span>
+    <span class="window-title">&#128101; Users</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1534,7 +1641,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Quick Application Switcher</span>
+    <span class="window-title">&#128256; Quick Application Switcher</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1552,7 +1659,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Print Manager</span>
+    <span class="window-title">&#128424; Print Manager</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1569,7 +1676,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Program Downloader</span>
+    <span class="window-title">&#11015; Program Downloader</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1586,7 +1693,24 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Help</span>
+    <span class="window-title">&#129513; Widget Manager</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+	This OS doesn't have this feature.
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#10067; Help</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1629,7 +1753,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Search</span>
+    <span class="window-title">&#128270; Search</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1671,7 +1795,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F501; Recycle Bin</a></span>
+    <span class="window-title"><a href="/features/recyclebin/recycle.md">&#128465; Recycle Bin</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1688,7 +1812,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F501; Run</a></span>
+    <span class="window-title">&#127939; Run</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1705,7 +1829,40 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title"><a href="/features/commandprompt/command.md">&#x1F501; Command Prompt</a></span>
+    <span class="window-title">&#128248; Screenshot Grabber</a></span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+	Screenshots are taken by pressing the Print Screen key, and then pasting into MS Paint. Windows 95 doesn't have a dedicated screenshot program.
+    </p>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#128260; Software Updates</a></span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+</div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+	This OS doesn't have this feature.
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title"><a href="/features/commandprompt/command.md">&#9000; Command Prompt</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1723,7 +1880,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F501; Resource Monitor</a></span>
+    <span class="window-title">&#128202; Resource Monitor</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1740,7 +1897,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F50B; Disk checking</span>
+    <span class="window-title">&#128189; Disk checking</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1813,7 +1970,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F501; Disk Management</a></span>
+    <span class="window-title">&#128190; Disk Management</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1831,7 +1988,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Backup</span>
+    <span class="window-title">&#128450; Backup</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1873,7 +2030,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; Application Properties</span>
+    <span class="window-title">&#9881; Application Properties</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1914,7 +2071,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; File Properties</span>
+    <span class="window-title">&#128196; File Properties</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -1931,7 +2088,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F4CB; HDD Properties</span>
+    <span class="window-title">&#128189; HDD Properties</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2009,7 +2166,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Getting Started</a></span>
+    <span class="window-title">&#128640; Getting Started</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2026,7 +2183,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Logout Window</a></span>
+    <span class="window-title">&#128682; Logout Window</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2043,7 +2200,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Shutdown Window</a></span>
+    <span class="window-title">&#x23FB; Shutdown Window</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2060,7 +2217,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Shutting Down</a></span>
+    <span class="window-title">&#8987; Shutting Down</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2076,7 +2233,7 @@ This OS doesn't have this feature.
   </div>
   <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Shutdown Complete</a></span>
+    <span class="window-title">&#9989; Shutdown Complete</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2093,7 +2250,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Boot Options</a></span>
+    <span class="window-title">&#128295; Boot Options</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2110,7 +2267,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Improper Shutdown</a></span>
+    <span class="window-title">&#9888; Improper Shutdown</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2127,7 +2284,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Installation Welcome</a></span>
+    <span class="window-title">&#128075; Installation Welcome</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2144,7 +2301,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; License</a></span>
+    <span class="window-title">&#128220; License</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2161,7 +2318,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Serial Number</a></span>
+    <span class="window-title">&#128273; Serial Key</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2178,7 +2335,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Installation Location</a></span>
+    <span class="window-title">&#128194; Installation Location</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2219,7 +2376,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Components</a></span>
+    <span class="window-title">&#129513; Components</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2260,7 +2417,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Installation File Copying</a></span>
+    <span class="window-title">&#128229; Installation File Copying</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2310,7 +2467,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Network Setup</a></span>
+    <span class="window-title">&#127760; Network Setup</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2327,7 +2484,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; User Creation</a></span>
+    <span class="window-title">&#128100; User Creation</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2344,7 +2501,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; OOBE Begin</a></span>
+    <span class="window-title">&#10024; OOBE Begin</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2361,7 +2518,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Installation Complete</a></span>
+    <span class="window-title">&#9989; Installation Complete</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2378,7 +2535,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; About GUI</a></span>
+    <span class="window-title">&#128421; About GUI</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2389,15 +2546,17 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 About GUI.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
-	<img src="/images/Windows/Win95/Windows 95 About GUI 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 About GUI.png" alt="Windows 95 Desktop" style="width:40%; border: 1px solid #ccc; margin-top: 12px;">
+<br>
+	<img src="/images/Windows/Win95/Windows 95 About GUI 2.png" alt="Windows 95 Desktop" style="width:40%; border: 1px solid #ccc; margin-top: 12px;">
+<br>
 	Windows 95 had two "about GUI" messages, a simpler one that could be accessed with winver, and another, more detailed one that could be accessed from Explorer.
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; About Application</a></span>
+    <span class="window-title">&#128230; About Application</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2408,13 +2567,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 About Application.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 About Application.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Dialog Box - Information</a></span>
+    <span class="window-title">&#8505; Dialog Box - Information</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2425,13 +2584,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Information Dialog.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Information Dialog.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Dialog Box - Warning</a></span>
+    <span class="window-title">&#9888; Dialog Box - Warning</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2442,13 +2601,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Warning Dialog.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Warning Dialog.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Dialog Box - Question</a></span>
+    <span class="window-title">&#10067; Dialog Box - Question</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2459,13 +2618,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Question Dialog.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Question Dialog.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Dialog Box - Error</a></span>
+    <span class="window-title">&#10060; Dialog Box - Error</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2476,13 +2635,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Error Dialog.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Error Dialog.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Font Selection</a></span>
+    <span class="window-title">&#128292; Font Selection</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2493,13 +2652,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Font Selection.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Font Selection.png" alt="Windows 95 Desktop" style="width:70%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Open File</a></span>
+    <span class="window-title">&#128194; Open File</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2516,7 +2675,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Print Dialog</a></span>
+    <span class="window-title">&#128424; Print Dialog</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2527,13 +2686,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Print.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Print.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Color Selection</a></span>
+    <span class="window-title">&#127912; Color Selection</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2544,13 +2703,13 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 Color Selection.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Color Selection.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	</p>
   </div>
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Wrong Password</a></span>
+    <span class="window-title">&#128274; Wrong Password</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2567,7 +2726,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Delete Confirmation</a></span>
+    <span class="window-title">&#128465;&#10067; Delete Confirmation</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2584,7 +2743,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Add Printer Wizard</a></span>
+    <span class="window-title">&#10133;&#128424; Add Printer Wizard</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2629,7 +2788,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Add Hardware Wizard</a></span>
+    <span class="window-title">&#128268; Add Hardware Wizard</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2672,7 +2831,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; File Copying</a></span>
+    <span class="window-title">&#128196;&#10145;&#128196; File Copying</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2716,7 +2875,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Fonts</a></span>
+    <span class="window-title">&#9997; Fonts</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2731,7 +2890,48 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x26A0 Crash Screen</a></span>
+    <span class="window-title">&#128027; Application Error</a></span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+<div class="ss-deck">
+  <div class="ss-stage">
+    
+	<img src="/images/Windows/Win95/Windows 95 Application Error.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Application Error 2.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
+
+  </div>
+
+  <div class="ss-controls">
+    <button type="button" class="ss-prev">◀ Prev</button>
+    <span class="ss-count"><span class="cur">1</span>/<span class="tot">1</span></span>
+    <button type="button" class="ss-next">Next ▶</button>
+  </div>
+
+  <div class="ss-dots" aria-label="Slide selector"></div>
+</div>
+
+<script>
+(function(){
+  
+  var s = document.currentScript, p = s.previousElementSibling;
+  while (p && !p.classList.contains('ss-deck')) { p = p.previousElementSibling; }
+  if (p && !p.__inited) { window.__initShots(p); p.__inited = true; }
+})();
+</script>
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#128165; Crash Screen</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2749,7 +2949,7 @@ This OS doesn't have this feature.
 </div>
 <div class="window">
   <div class="window-header">
-    <span class="window-title">&#x1F511; Boot Error</a></span>
+    <span class="window-title">&#128721; Boot Error</a></span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2761,6 +2961,88 @@ This OS doesn't have this feature.
       
     </p>
 	<img src="/images/Windows/Win95/Windows 95 Boot Error.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#128421; Desktop Context Menu</a></span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+<div class="ss-deck">
+  <div class="ss-stage">
+    
+	<img src="/images/Windows/Win95/Windows 95 Context Menu.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+        <img src="/images/Windows/Win95/Windows 95 Desktop Context Menu 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+
+  </div>
+
+  <div class="ss-controls">
+    <button type="button" class="ss-prev">◀ Prev</button>
+    <span class="ss-count"><span class="cur">1</span>/<span class="tot">1</span></span>
+    <button type="button" class="ss-next">Next ▶</button>
+  </div>
+
+  <div class="ss-dots" aria-label="Slide selector"></div>
+</div>
+
+<script>
+(function(){
+  
+  var s = document.currentScript, p = s.previousElementSibling;
+  while (p && !p.classList.contains('ss-deck')) { p = p.previousElementSibling; }
+  if (p && !p.__inited) { window.__initShots(p); p.__inited = true; }
+})();
+</script>
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#128196; File Context Menu</a></span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+<div class="ss-deck">
+  <div class="ss-stage">
+    
+	<img src="/images/Windows/Win95/Windows 95 File Context Menu.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+        <img src="/images/Windows/Win95/Windows 95 File Context Menu 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+
+  </div>
+
+  <div class="ss-controls">
+    <button type="button" class="ss-prev">◀ Prev</button>
+    <span class="ss-count"><span class="cur">1</span>/<span class="tot">1</span></span>
+    <button type="button" class="ss-next">Next ▶</button>
+  </div>
+
+  <div class="ss-dots" aria-label="Slide selector"></div>
+</div>
+
+<script>
+(function(){
+  
+  var s = document.currentScript, p = s.previousElementSibling;
+  while (p && !p.classList.contains('ss-deck')) { p = p.previousElementSibling; }
+  if (p && !p.__inited) { window.__initShots(p); p.__inited = true; }
+})();
+</script>
     </p>
   </div>
 </div>
@@ -2849,7 +3131,7 @@ This OS doesn't have this feature.
         
         <li>
             <a href="/posts/2025-08/">
-                2025-08 (6)
+                2025-08 (7)
             </a>
         </li>
         
@@ -2964,7 +3246,7 @@ This OS doesn't have this feature.
                     <div>Posts: 0</div>
                     <div>Categories: 0</div>
                     <div>Tags: 0</div>
-                    <div>Last Update: Aug 21, 2025</div>
+                    <div>Last Update: Aug 28, 2025</div>
                 </div>
             </div>
             
@@ -2975,7 +3257,7 @@ This OS doesn't have this feature.
                     
                 </div>
                 <div style="font-size: 8px; color: var(--text-secondary);">
-                    Best viewed in Opera 7.0+
+                    Best viewed in Safari
                     
                 </div>
                 <div style="font-size: 8px; margin-top: 4px;">
@@ -3001,13 +3283,13 @@ This OS doesn't have this feature.
     
     <div class="status-bar">
         <div class="status-left">
-            <span class="status-item">Wed 27 Aug 2025</span>
-            <span class="status-item">21:03</span>
+            <span class="status-item">Thu 28 Aug 2025</span>
+            <span class="status-item">02:28</span>
         </div>
         <div class="status-right">
             <span class="status-item">Gui Galaxy</span>
             
-            <span class="status-item">1267 words</span>
+            <span class="status-item">1414 words</span>
             
         </div>
     </div>
