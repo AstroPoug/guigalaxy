@@ -94,6 +94,48 @@ function showCloseDialog(window) {
     }
 }
 
+(function(){
+  // Delegate clicks; only act on the window that contains the clicked control
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.window-controls .window-button');
+    if (!btn) return;
+
+    const win = btn.closest('.window');
+    if (!win) return;
+
+    const action = btn.dataset.action;
+
+    if (action === 'close') {
+      // Remove just this window/section
+      win.remove();
+      e.preventDefault();
+      return;
+    }
+
+    if (action === 'min') {
+      // Toggle only the direct .window-content of this window (not nested ones)
+      let content = win.querySelector(':scope > .window-content');
+      if (!content) {
+        // fallback if :scope unsupported
+        const kids = Array.from(win.children);
+        content = kids.find(el => el.classList && el.classList.contains('window-content'));
+      }
+      if (content) {
+        content.style.display = (content.style.display === 'none') ? '' : 'none';
+      }
+      e.preventDefault();
+      return;
+    }
+
+    if (action === 'max') {
+      // Optional: simple “max” toggle class on this window only
+      win.classList.toggle('is-maximized');
+      e.preventDefault();
+      return;
+    }
+  });
+})();
+
 // Retro effects
 function initRetroEffects() {
     // Random retro messages
