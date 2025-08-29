@@ -132,7 +132,7 @@
                 </span>
                 
                 <span class="post-meta-item">
-                    🔄 Updated: August 27, 2025
+                    🔄 Updated: August 28, 2025
                 </span>
                 
 
@@ -230,6 +230,103 @@
   </div>
   <div class="window-content" style="padding: 12px;">
     <p>  
+	<style>
+  .ss-deck{margin:8px 0}
+  .ss-stage img{display:none;width:100%;height:auto;image-rendering:pixelated;border:1px solid #bbb}
+  .ss-stage img.active{display:block}
+  .ss-controls{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0}
+  .ss-controls button{padding:2px 8px;border:1px solid #888;background:#ddd;cursor:pointer}
+  .ss-dots{display:flex;gap:4px;justify-content:center;margin-top:4px}
+  .ss-dots .ss-dot{width:9px;height:9px;border:1px solid #666;background:#e5e5e5;padding:0}
+  .ss-dots .ss-dot.active{background:#666}
+</style>
+<script>
+  window.__initShots = window.__initShots || function(deck){
+    const imgs = deck.querySelectorAll('.ss-stage img');
+    if (!imgs.length) return;
+    imgs.forEach((im,i)=>{ im.classList.toggle('active', i===0); im.dataset.idx = i; });
+    let idx = 0, total = imgs.length;
+    const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
+    if (tot) tot.textContent = total; if (cur) cur.textContent = 1;
+
+    function show(n){
+      idx = (n + total) % total;
+      imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
+      if (cur) cur.textContent = idx+1;
+      deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
+    }
+
+    deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
+    deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
+
+    const dots = deck.querySelector('.ss-dots');
+    dots.innerHTML = '';
+    imgs.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'ss-dot';
+      b.setAttribute('aria-label','Go to slide '+(i+1));
+      b.addEventListener('click', ()=>show(i));
+      dots.appendChild(b);
+    });
+    dots.firstChild?.classList.add('active');
+
+    
+    deck.tabIndex = 0;
+    deck.addEventListener('keydown', e=>{
+      if (e.key === 'ArrowLeft') show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  };
+</script><div class="ss-deck">
+  <div class="ss-stage">
+    
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 3.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 4.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 5.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 6.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 7.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 8.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 9.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 10.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 11.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 12.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 13.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 14.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 15.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 16.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 17.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 18.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 19.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 20.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 21.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 22.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 23.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 24.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 25.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 26.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 in Desktop Themes 27.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+    
+  </div>
+
+  <div class="ss-controls">
+    <button type="button" class="ss-prev">◀ Prev</button>
+    <span class="ss-count"><span class="cur">1</span>/<span class="tot">1</span></span>
+    <button type="button" class="ss-next">Next ▶</button>
+  </div>
+
+  <div class="ss-dots" aria-label="Slide selector"></div>
+</div>
+
+<script>
+(function(){
+  
+  var s = document.currentScript, p = s.previousElementSibling;
+  while (p && !p.classList.contains('ss-deck')) { p = p.previousElementSibling; }
+  if (p && !p.__inited) { window.__initShots(p); p.__inited = true; }
+})();
+</script>
     </p>
   </div>
  <div class="window">
@@ -266,7 +363,7 @@
       
     </p>
 
-    <img src="/images/Windows/Win95/Windows 95 Text Editor.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+    <img src="/images/Windows/Win95/Windows 95 Word Processor.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
 
     <p style="font-size: 12px; margin-top: 8px;">
       WordPad
@@ -399,54 +496,7 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-<style>
-  .ss-deck{margin:8px 0}
-  .ss-stage img{display:none;width:100%;height:auto;image-rendering:pixelated;border:1px solid #bbb}
-  .ss-stage img.active{display:block}
-  .ss-controls{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0}
-  .ss-controls button{padding:2px 8px;border:1px solid #888;background:#ddd;cursor:pointer}
-  .ss-dots{display:flex;gap:4px;justify-content:center;margin-top:4px}
-  .ss-dots .ss-dot{width:9px;height:9px;border:1px solid #666;background:#e5e5e5;padding:0}
-  .ss-dots .ss-dot.active{background:#666}
-</style>
-<script>
-  window.__initShots = window.__initShots || function(deck){
-    const imgs = deck.querySelectorAll('.ss-stage img');
-    if (!imgs.length) return;
-    imgs.forEach((im,i)=>{ im.classList.toggle('active', i===0); im.dataset.idx = i; });
-    let idx = 0, total = imgs.length;
-    const cur = deck.querySelector('.cur'), tot = deck.querySelector('.tot');
-    if (tot) tot.textContent = total; if (cur) cur.textContent = 1;
-
-    function show(n){
-      idx = (n + total) % total;
-      imgs.forEach((im,i)=> im.classList.toggle('active', i===idx));
-      if (cur) cur.textContent = idx+1;
-      deck.querySelectorAll('.ss-dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
-    }
-
-    deck.querySelector('.ss-prev')?.addEventListener('click', ()=>show(idx-1));
-    deck.querySelector('.ss-next')?.addEventListener('click', ()=>show(idx+1));
-
-    const dots = deck.querySelector('.ss-dots');
-    dots.innerHTML = '';
-    imgs.forEach((_,i)=>{
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'ss-dot';
-      b.setAttribute('aria-label','Go to slide '+(i+1));
-      b.addEventListener('click', ()=>show(i));
-      dots.appendChild(b);
-    });
-    dots.firstChild?.classList.add('active');
-
-    
-    deck.tabIndex = 0;
-    deck.addEventListener('keydown', e=>{
-      if (e.key === 'ArrowLeft') show(idx-1);
-      if (e.key === 'ArrowRight') show(idx+1);
-    });
-  };
-</script><div class="ss-deck">
+<div class="ss-deck">
   <div class="ss-stage">
     
 <img src="/images/Windows/Win95/Windows 95 Media Player.png" alt="Windows 95 Desktop" style="width:66%; border: 1px solid #ccc; margin-top: 12px;">
@@ -750,6 +800,23 @@ This OS doesn't have this feature.
 <div class="window">
   <div class="window-header">
     <span class="window-title">&#9925; Weather</span>
+    <div class="window-controls">
+  <span class="window-button">_</span>      <!-- Minimize (underscore) -->
+  <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
+  <span class="window-button close">&#x2715;</span> <!-- Close (?) -->
+</div>
+  </div>
+  <div class="window-content" style="padding: 12px;">
+    <p>
+      
+    </p>
+    This OS doesn't have this feature.
+    </p>
+  </div>
+</div>
+<div class="window">
+  <div class="window-header">
+    <span class="window-title">&#9925; Maps</span>
     <div class="window-controls">
   <span class="window-button">_</span>      <!-- Minimize (underscore) -->
   <span class="window-button">&#x25A1;</span> <!-- Maximize (?) -->
@@ -2082,7 +2149,7 @@ This OS doesn't have this feature.
     <p>
       
     </p>
-	<img src="/images/Windows/Win95/Windows 95 File Properties.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 File Properties.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
     </p>
   </div>
 </div>
@@ -2102,8 +2169,8 @@ This OS doesn't have this feature.
     <div class="ss-deck">
   <div class="ss-stage">
     
-	<img src="/images/Windows/Win95/Windows 95 HDD Properties.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
-	<img src="/images/Windows/Win95/Windows 95 HDD Properties 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 HDD Properties.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 HDD Properties 2.png" alt="Windows 95 Desktop" style="width:75%; border: 1px solid #ccc; margin-top: 12px;">
 	
   </div>
 
@@ -2980,8 +3047,8 @@ This OS doesn't have this feature.
 <div class="ss-deck">
   <div class="ss-stage">
     
-	<img src="/images/Windows/Win95/Windows 95 Context Menu.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
-        <img src="/images/Windows/Win95/Windows 95 Desktop Context Menu 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 Context Menu.png" alt="Windows 95 Desktop" style="width:50%; border: 1px solid #ccc; margin-top: 12px;">
+        <img src="/images/Windows/Win95/Windows 95 Desktop Context Menu 2.png" alt="Windows 95 Desktop" style="width:50%; border: 1px solid #ccc; margin-top: 12px;">
 
   </div>
 
@@ -3021,8 +3088,8 @@ This OS doesn't have this feature.
 <div class="ss-deck">
   <div class="ss-stage">
     
-	<img src="/images/Windows/Win95/Windows 95 File Context Menu.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
-        <img src="/images/Windows/Win95/Windows 95 File Context Menu 2.png" alt="Windows 95 Desktop" style="width:100%; border: 1px solid #ccc; margin-top: 12px;">
+	<img src="/images/Windows/Win95/Windows 95 File Context Menu.png" alt="Windows 95 Desktop" style="width:50%; border: 1px solid #ccc; margin-top: 12px;">
+        <img src="/images/Windows/Win95/Windows 95 File Context Menu 2.png" alt="Windows 95 Desktop" style="width:50%; border: 1px solid #ccc; margin-top: 12px;">
 
   </div>
 
@@ -3131,7 +3198,7 @@ This OS doesn't have this feature.
         
         <li>
             <a href="/posts/2025-08/">
-                2025-08 (7)
+                2025-08 (8)
             </a>
         </li>
         
@@ -3284,12 +3351,12 @@ This OS doesn't have this feature.
     <div class="status-bar">
         <div class="status-left">
             <span class="status-item">Thu 28 Aug 2025</span>
-            <span class="status-item">02:28</span>
+            <span class="status-item">21:18</span>
         </div>
         <div class="status-right">
             <span class="status-item">Gui Galaxy</span>
             
-            <span class="status-item">1414 words</span>
+            <span class="status-item">1430 words</span>
             
         </div>
     </div>
